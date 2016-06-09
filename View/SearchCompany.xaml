@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="AnnualReportCrawler.View.SearchCompany"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnnualReportCrawler.View"                
+        xmlns:viewModel="clr-namespace:AnnualReportCrawler.ViewModel"
+        xmlns:converter="clr-namespace:AnnualReportCrawler.Converter">
+    <UserControl.DataContext>
+        <viewModel:SearchCompanyViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <converter:VisibilityConverter  x:Key="visibilityConverter"/>
+    </UserControl.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="25">
+            <TextBox x:Name="companyName" Width="500" Height="30" 
+                     Text="{Binding CompanyName, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button x:Name="searchAnnualReport" Width="100" Height="30"
+                    Content="Search"
+                    Command="{Binding SearchCompany}"/>
+        </StackPanel>
+
+        <ListView Grid.Row="1"
+                  ItemsSource="{Binding ReportSearch, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                  Visibility="{Binding IsReportSearchVisile, Converter={StaticResource visibilityConverter}}"
+                  SelectedItem="{Binding SelectedCompany, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding CompanyName}" Height="30" Margin="5"/>                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView Grid.Row="2"
+                  ItemsSource="{Binding CompanyReport, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                  Visibility="{Binding IsCompanyReportVisile, Converter={StaticResource visibilityConverter}}"
+                  SelectedItem="{Binding SelectedReport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" Height="30" Margin="5"/>
+                        <Button Margin="5" Command="{Binding Path=DataContext.DownloadReport, RelativeSource=
+                                   {RelativeSource FindAncestor, 
+                                   AncestorType={x:Type ItemsControl}}}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Image Source="/AnnualReportCrawler;component/Resources/download-image.jpg"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Content="Read File" Grid.Row="3" Command="{Binding CrawlReport}"/>
+
+    </Grid>
+</UserControl>
