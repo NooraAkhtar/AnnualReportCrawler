@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using AnnualReportCrawler.ExcelHelper;
 
 namespace AnnualReportCrawler.ViewModel
 {
@@ -118,9 +119,7 @@ namespace AnnualReportCrawler.ViewModel
                 OnPropertyChanged("ShowCompanyReports");
             }
         }
-
-        //
-
+        
         private async void SearchCompanySECReport()
         {
             IsBusy = true;
@@ -154,9 +153,7 @@ namespace AnnualReportCrawler.ViewModel
             }
             IsBusy = false;
         }
-
-
-
+        
         private async void LoadReport()
         {
             if (SelectedCompanyReport != null)
@@ -168,12 +165,16 @@ namespace AnnualReportCrawler.ViewModel
                     IsBusy = false;
                     if (!string.IsNullOrEmpty(report.ReportPath))
                     {
+
+
                         var excel = new Process();
                         excel.StartInfo.FileName = report.ReportPath;
                         excel.Start();
 
                         // Need to wait for excel to start
                         excel.WaitForInputIdle();
+
+                        ReadExcelFile(report.ReportPath);
                     }
                 }
                 catch(InvalidOperationException e)
@@ -186,6 +187,12 @@ namespace AnnualReportCrawler.ViewModel
                     MessageBox.Show(e.Message + "\nPlease try again!");
                 }
             }
+        }
+
+        private void ReadExcelFile(string filePath)
+        {
+            var readExcelData = new ReadExcelData();
+            readExcelData.ReadExcel(filePath, CompanyName);
         }
     }
 }

@@ -3,9 +3,6 @@ D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\AnnualReportCrawler.exe
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\AnnualReportCrawler.pdb
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\FSharp.Core.dll
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\HtmlAgilityPack.dll
-D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\MongoDB.Bson.dll
-D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\MongoDB.Driver.Core.dll
-D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\MongoDB.Driver.dll
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\ScrapySharp.Core.dll
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\ScrapySharpAsync.dll
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\Telerik.Windows.Controls.dll
@@ -17,8 +14,6 @@ D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\Telerik.Windows.Data.dll
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\FSharp.Core.xml
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\HtmlAgilityPack.pdb
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\HtmlAgilityPack.xml
-D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\MongoDB.Bson.xml
-D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\MongoDB.Driver.xml
 D:\AnnualReportCrawler\AnnualReportCrawler\obj\Release\MainWindow.g.cs
 D:\AnnualReportCrawler\AnnualReportCrawler\obj\Release\View\SearchCompany.g.cs
 D:\AnnualReportCrawler\AnnualReportCrawler\obj\Release\View\SECReportSearch.g.cs
@@ -37,3 +32,11 @@ D:\AnnualReportCrawler\AnnualReportCrawler\obj\Release\AnnualReportCrawler.pdb
 D:\AnnualReportCrawler\AnnualReportCrawler\obj\Release\AnnualReportCrawler.csprojResolveAssemblyReference.cache
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\itextsharp.dll
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\itextsharp.xml
+D:\AnnualReportCrawler\AnnualReportCrawler\obj\Release\AnnualReportCrawler.csproj.ResolveComReference.cache
+D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\LinqToExcel.dll
+D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\Remotion.Data.Linq.dll
+D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\Remotion.dll
+D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\Remotion.Interfaces.dll
+D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\LinqToExcel.xml
+D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\log4net.dll
+D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\log4net.xml

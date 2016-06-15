@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AnnualReportCrawler.ExcelHelper;
 
 namespace AnnualReportCrawler.View
 {
@@ -23,6 +24,13 @@ namespace AnnualReportCrawler.View
         public SECReportSearch()
         {
             InitializeComponent();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var readExcelData = new ReadExcelData();
+            var sheets = readExcelData.ReadExcel(@"C:\Program Files (x86)\EuromonitorInternational\CompanyAnnualReport\ReportsRepository\0000320187_10-K.xlsx", "Nike");
+            
         }
     }
 }

@@ -24,6 +24,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="25">
                     <TextBox x:Name="companyName" Width="500" Height="30" 
@@ -74,7 +75,8 @@
                         <telerik:GridViewDataColumn Header="FilingDate" DataMemberBinding="{Binding FilingDate}"
                                                     IsGroupable="False"/>
                     </telerik:RadGridView.Columns>
-                </telerik:RadGridView>               
+                </telerik:RadGridView>
+                <Button Content="Read Excel" Grid.Row="3" Click="ButtonBase_OnClick" Width="100" Height="30"/>
 
             </Grid>
         </telerik:RadBusyIndicator>
