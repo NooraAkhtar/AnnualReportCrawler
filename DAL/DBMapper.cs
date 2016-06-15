@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AnnualReportCrawler.View;
 
 namespace AnnualReportCrawler.DAL
 {
@@ -74,5 +75,67 @@ namespace AnnualReportCrawler.DAL
             dbHelper.ExecuteNonQuery("spCompanySegment_Save", parameters.ToArray());
 
         }
+
+        public List<Company> GetCompanies()
+        {
+            var dataTable = dbHelper.SelectDataTable("spCompany_Get", null);
+            var companies = new List<Company>();
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                var company = new Company();
+                company.Id = dataRow["id"] == DBNull.Value ? 1 : Convert.ToInt32(dataRow["id"]);
+                company.Name = dataRow["name"] == DBNull.Value ? "" : Convert.ToString(dataRow["name"]);
+                companies.Add(company);
+            }
+            return companies;
+        }
+
+        internal CompanyDetail GetCompanies(int id)
+        {
+            var parameters = new List<SqlParameter>();
+
+            parameters.Add(new SqlParameter("@companyId", SqlDbType.Int) { Value = id });
+
+            var dataSet = dbHelper.SelectDataSet("spCompanyDetails_Get", parameters.ToArray());
+            var companyDetails = new CompanyDetail();
+            var incomeInfo = new List<CompanyIncome>();
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                var info = new CompanyIncome();
+                info.Id = dataRow["id"] == DBNull.Value ? 1 : Convert.ToInt32(dataRow["id"]);
+                info.RowHeader = dataRow["RowHeader"] == DBNull.Value ? "" : Convert.ToString(dataRow["RowHeader"]);
+                info.ValueCell1 = dataRow["valueCell1"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell1"]);
+                info.ValueCell2 = dataRow["valueCell2"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell2"]);
+                info.ValueCell3 = dataRow["valueCell3"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell3"]);
+                info.ValueCell4 = dataRow["valueCell4"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell4"]);
+                info.ValueCell5 = dataRow["valueCell5"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell5"]);
+                info.IsHeaderRow = dataRow["isHeaderRow"] == DBNull.Value ? 1 : Convert.ToInt32(dataRow["isHeaderRow"]);
+                info.SheetName = dataRow["sheetName"] == DBNull.Value ? "" : Convert.ToString(dataRow["sheetName"]);
+                info.CompanyId = dataRow["companyId"] == DBNull.Value ? 0 : Convert.ToInt32(dataRow["companyId"]);
+                incomeInfo.Add(info);
+            }
+            companyDetails.CompanyIncomeInfo = incomeInfo;
+
+            var segmentInfo = new List<CompanySegment>();
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                var info = new CompanySegment();
+                info.Id = dataRow["id"] == DBNull.Value ? 1 : Convert.ToInt32(dataRow["id"]);
+                info.RowHeader = dataRow["RowHeader"] == DBNull.Value ? "" : Convert.ToString(dataRow["RowHeader"]);
+                info.ValueCell1 = dataRow["valueCell1"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell1"]);
+                info.ValueCell2 = dataRow["valueCell2"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell2"]);
+                info.ValueCell3 = dataRow["valueCell3"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell3"]);
+                info.ValueCell4 = dataRow["valueCell4"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell4"]);
+                info.ValueCell5 = dataRow["valueCell5"] == DBNull.Value ? "" : Convert.ToString(dataRow["valueCell5"]);
+                info.IsHeaderRow = dataRow["isHeaderRow"] == DBNull.Value ? 1 : Convert.ToInt32(dataRow["isHeaderRow"]);
+                info.SheetName = dataRow["sheetName"] == DBNull.Value ? "" : Convert.ToString(dataRow["sheetName"]);
+                info.CompanyId = dataRow["companyId"] == DBNull.Value ? 0 : Convert.ToInt32(dataRow["companyId"]);
+                segmentInfo.Add(info);
+            }
+            companyDetails.CompanySegments = segmentInfo;
+
+
+            return companyDetails;
+        } 
     }
 }

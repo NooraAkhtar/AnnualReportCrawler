@@ -40,3 +40,5 @@ D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\Remotion.Interfaces.dll
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\LinqToExcel.xml
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\log4net.dll
 D:\AnnualReportCrawler\AnnualReportCrawler\bin\Release\log4net.xml
+D:\AnnualReportCrawler\AnnualReportCrawler\obj\Release\View\CompanyData.g.cs
+D:\AnnualReportCrawler\AnnualReportCrawler\obj\Release\View\CompanyData.baml

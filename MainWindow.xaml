@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:AnnualReportCrawler"
         mc:Ignorable="d"
         Title="Annual Report" Height="850" Width="1200"
-        xmlns:userControl="clr-namespace:AnnualReportCrawler.View">
+        xmlns:userControl="clr-namespace:AnnualReportCrawler.View"
+        WindowState="Maximized">
     <Grid>
         <TabControl>            
             <TabItem Header="SEC Report">
@@ -14,6 +15,9 @@
             </TabItem>
             <TabItem Header="Annual Report">
                 <userControl:SearchCompany />
+            </TabItem>
+            <TabItem Header="Companies">
+                <userControl:CompanyData />
             </TabItem>
         </TabControl>
     </Grid>

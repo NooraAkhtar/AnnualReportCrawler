@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 using AnnualReportCrawler.DAL;
+using AnnualReportCrawler.View;
 using LinqToExcel;
 
 namespace AnnualReportCrawler.ExcelHelper
@@ -145,6 +146,16 @@ namespace AnnualReportCrawler.ExcelHelper
             {
                 dbMapper.SaveCompanyIncome(item);
             }
+        }
+
+        public List<Company> GetAllCompanies()
+        {
+            return dbMapper.GetCompanies();
+        }
+
+        public CompanyDetail GetCompanyDetails(int id)
+        {
+            return dbMapper.GetCompanies(id);
         }
     }
 }

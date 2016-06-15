@@ -132,9 +132,14 @@
     <Compile Include="Model\CompanyReport.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="ViewModel\CommandHandler.cs" />
+    <Compile Include="ViewModel\CompanyDataViewModel.cs" />
     <Compile Include="ViewModel\NotifyPropertyChanged.cs" />
     <Compile Include="ViewModel\SearchCompanyViewModel.cs" />
     <Compile Include="ViewModel\SECReportSearchViewModel.cs" />
+    <Compile Include="View\CompanyData.xaml.cs">
+      <DependentUpon>CompanyData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CompanyDetail.cs" />
     <Compile Include="View\SearchCompany.xaml.cs">
       <DependentUpon>SearchCompany.xaml</DependentUpon>
     </Compile>
@@ -153,6 +158,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\CompanyData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SearchCompany.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
